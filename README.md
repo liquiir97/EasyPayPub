@@ -8,4 +8,4 @@
 <img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/StartPage.png">|<img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/SlipPage.png">|<img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/NewSlipPage.png">|<img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/SlipPdf.png">
 
 #PDF
-[embed]https://github.com/liquiir97/EasyPayPub/blob/main/uplatnica_05_12_2024_17_58_51.pdf[/embed]
+[embed]https://github.com/liquiir97/EasyPayPub/blob/main/uplatnica_05_12_2024_17_58_51.pdf [/embed]
