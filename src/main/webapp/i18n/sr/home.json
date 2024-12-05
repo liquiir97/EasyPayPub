@@ -1,0 +1,32 @@
+{
+  "home": {
+    "title": "Dobro došli u Easy Pay!",
+    "subtitle": "Ovo je Vaša početna stranica",
+    "logged": {
+      "message": "Prijavljeni ste kao korisnik \"{{username}}\"."
+    },
+    "question": "Ako imate bilo kakva pitanja o JHipster-u:",
+    "link": {
+      "homepage": "JHipster početna stranica",
+      "stackoverflow": "JHipster na Stack Overflow",
+      "bugtracker": "JHipster tragač za greškama",
+      "chat": "JHipster javni čet",
+      "follow": "pratite @jhipster na Twitter-u"
+    },
+    "like": "Ako Vam se dopada JHipster, ne zaboravite da nam date zvezdicu na",
+    "github": "GitHub-u",
+    "pageContent1": "Dobrodošli u Easy Pay - tvoj brzi put do jednostavnog kreiranja uplatnica!",
+    "pageContent2": "Šta omogućava Easy Pay?",
+    "pageContent21": "<span style='color: #b38fb6; font-weight: bold;'>Easy pay</span> je inovativna aplikacija koja vam pruža jednostavan način za kreiranje uplatnica - brzo i bez muke. Bez obzira da li ste privatni korisnik koji želi brzo da plati svoje račune ili poslovni profesionalac koji se suočava sa stvaranjem velikog broja uplatnica, <span style='color: #b38fb6; font-weight: bold;'>Easy pay</span> je tu da vam olakša život.",
+    "pageContent3": "Kreiranje uplatnica u sekundi:",
+    "pageContent31": "<span style='color: #b38fb6; font-weight: bold;'>Kreiranje uplatnica u sekundi:</span> Svoje uplatnice možete kreirati bukvalno u nekoliko klikova. Unesite potrebne podatke, odaberite opcije plaćanja, i gotovo! Sa <span style='color: #b38fb6; font-weight: bold;'>Easy pay</span>, proces kreiranja uplatnice je jednostavan kao nikada pre.",
+    "pageContent4": "Generisanje PDF reporta:",
+    "pageContent41": "<span style='color: #b38fb6; font-weight: bold;'>Generisanje PDF reporta: Easy Pay</span> vam omogućava kreiranje PDF reporta sa svim detaljima vaših transakcija. Pratite svoje finansije na efikasan način i imajte uvid u sve vaše uplate na jednom mestu.",
+    "pageContent5": "QR kod za brza plaćanja:",
+    "pageContent51": "<span style='color: #b38fb6; font-weight: bold;'>QR kod za brza plaćanja:</span> Skenirajte QR kod i završite plaćanje u trenu! <span style='color: #b38fb6; font-weight: bold;'>Easy pay</span> generiše QR kodove za svaku uplatnicu, čime ubrzava proces plaćanja i čini ga praktičnijim nego ikad pre.",
+    "pageContent6": "Pogodno za privatne i poslovne korisnike:",
+    "pageContent61": "<span style='color: #b38fb6; font-weight: bold;'>Pogodno za privatne i poslovne korisnike:</span> Nezavisno od toga da li ste pojedinac koji želi brzo i lako platiti račune ili poslovan profesionalac koji svakodnevno stvara veliki broj uplatnica, <span style='color: #b38fb6; font-weight: bold;'>Easy pay</span> je dizajniran da zadovolji sve vaše potrebe.",
+    "pageContent7": "Primenite praktičnost, uštedite vreme i olakšajte svoje finansije uz <span style='color: #b38fb6; font-weight: bold;'>Easy pay</span>. Registrujte se danas i doživite novi nivo jednostavnosti u procesu kreiranja uplatnica!",
+    "pageContent8": "Easy Pay"
+  }
+}

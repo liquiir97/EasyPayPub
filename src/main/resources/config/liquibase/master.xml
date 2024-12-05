@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="floatType" value="float" dbms="mysql"/>
+    <property name="clobType" value="clob" dbms="mysql"/>
+    <property name="blobType" value="longblob" dbms="mysql"/>
+    <property name="uuidType" value="varchar(36)" dbms="mysql"/>
+    <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231109083256_added_entity_Uplatnica.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
+    <changeSet author="neca" id="141120231030">
+        <sqlFile dbms="mysql" encoding="utf8" endDelimiter=";"
+                 path="sql/141120231030_add_new_column_to_uplatnica.sql"
+                 relativeToChangelogFile="true" splitStatements="true" />
+    </changeSet>
+    <changeSet author="neca" id="07012024192500">
+        <sqlFile dbms="mysql" encoding="utf8" endDelimiter=";"
+                 path="sql/07012024192500_add_new_column_to_uplatnica_favourite.sql"
+                 relativeToChangelogFile="true" splitStatements="true" />
+    </changeSet>
+    <changeSet author="neca" id="07012024194000">
+        <sqlFile dbms="mysql" encoding="utf8" endDelimiter=";"
+                 path="sql/07012024194000_alet_table_set_default_for_column_favourite.sql"
+                 relativeToChangelogFile="true" splitStatements="true" />
+    </changeSet>
+</databaseChangeLog>

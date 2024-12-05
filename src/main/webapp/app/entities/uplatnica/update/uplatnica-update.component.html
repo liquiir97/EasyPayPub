@@ -1,0 +1,352 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8" id="addData">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm" autocomplete="off">
+      <h2 id="jhi-uplatnica-heading" data-cy="UplatnicaCreateUpdateHeading" jhiTranslate="easyPayApp.uplatnica.home.createOrEditLabel">
+        Create or edit a Uplatnica
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+        <div jhiTranslate="easyPayApp.uplatnica.error.racunPrimaoca" *ngIf="errorTekuci" class="alert alert-danger" role="alert"></div>
+        <div jhiTranslate="easyPayApp.uplatnica.error.iznos" *ngIf="errorIznos" class="alert alert-danger" role="alert"></div>
+        <div
+          jhiTranslate="easyPayApp.uplatnica.error.svrhaPlacanja"
+          *ngIf="errorSvrhaPlacanja"
+          class="alert alert-danger"
+          role="alert"
+        ></div>
+        <div jhiTranslate="easyPayApp.uplatnica.error.model" *ngIf="errorModel" class="alert alert-danger" role="alert"></div>
+        <div jhiTranslate="easyPayApp.uplatnica.error.pozivNaBroj" *ngIf="errorPozivNaBroj" class="alert alert-danger" role="alert"></div>
+
+        <!--<div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>-->
+
+        <!------------------------------------------------------------------------------------------------------------------------>
+
+        <div class="container">
+          <div class="row">
+            <div class="col" style="margin-right: 5vh">
+              <div class="row mb-3">
+                <label class="form-label" jhiTranslate="easyPayApp.uplatnica.uplatilac" for="field_uplatilac">Uplatilac</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="uplatilac"
+                  id="field_uplatilac"
+                  data-cy="uplatilac"
+                  formControlName="uplatilac"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="row mb-3">
+                <label class="form-label" jhiTranslate="easyPayApp.uplatnica.svrhaUplate">Svrha Uplate</label>
+                <div style="margin-left: -12px">
+                  <input
+                    id="svrhaUplateId"
+                    [(ngModel)]="svrhaUplateValue"
+                    [ngModelOptions]="{ standalone: true }"
+                    list="svrhaPlacanjaL"
+                    #svPl
+                    (change)="svrhaPlacanjaChange(svPl.value)"
+                    autocomplete="off"
+                  />
+                  <datalist id="svrhaPlacanjaL">
+                    <option *ngFor="let svPl of svrhaPlacanjaPrevious" value="{{ svPl }}"></option>
+                  </datalist>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label class="form-label" jhiTranslate="easyPayApp.uplatnica.primalac">Primalac</label>
+                <div style="margin-left: -12px">
+                  <input
+                    id="primalacId"
+                    [(ngModel)]="primalacValue"
+                    [ngModelOptions]="{ standalone: true }"
+                    list="primalacL"
+                    #primalac
+                    (change)="primalacChange(primalac.value)"
+                    autocomplete="off"
+                  />
+                  <datalist id="primalacL">
+                    <option *ngFor="let primalac of primalacPrevious" value="{{ primalac }}"></option>
+                  </datalist>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <!--<div class="col">-->
+                <!--<label class="form-label" jhiTranslate="easyPayApp.uplatnica.sifraPlacanja" for="field_sifraPlacanja">Sifra Placanja</label>
+                  <!--<div class="row">-->
+                <div class="col" style="margin-right: 1vh">
+                  <div class="row mb-3">
+                    <!--<label id="textF">Oblik placanja</label>-->
+                    <label jhiTranslate="easyPayApp.uplatnica.sifraPlacanja" id="textF">Sifra placanja</label>
+                    <select
+                      style="width: 18vh; margin-top: 22px"
+                      #oblikPlacanjaId
+                      (change)="onSelected(oblikPlacanjaId.value)"
+                      [(ngModel)]="status"
+                      [ngModelOptions]="{ standalone: true }"
+                    >
+                      <option *ngFor="let ob of oblikPlacanja" value="{{ ob.code }}">{{ ob.code + ' ' + ob.name }}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col" style="margin-right: 1vh">
+                  <div class="row mb-3">
+                    <label id="textF" style="visibility: hidden">Sifra placanja</label>
+                    <input
+                      id="osnovplId"
+                      style="width: 16vh; margin-top: 17px"
+                      [(ngModel)]="osnovPlValue"
+                      [ngModelOptions]="{ standalone: true }"
+                      list="osnovpl"
+                      #os
+                      (change)="ssChange(os.value)"
+                    />
+                    <datalist id="osnovpl">
+                      <option *ngFor="let os of osnovPlacanja" value="{{ os.name }}"></option>
+                    </datalist>
+                  </div>
+                </div>
+
+                <!--</div>-->
+                <!--</div>-->
+                <!--Pocetak drugog elementa u nizu VALUTA-->
+                <div class="col">
+                  <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="easyPayApp.uplatnica.valuta" for="field_valuta">Valuta</label>
+                    <input
+                      style="width: 9vh; background-color: #bebfc2; font-style: italic"
+                      readonly
+                      type="text"
+                      class="form-control"
+                      name="valuta"
+                      id="field_valuta"
+                      data-cy="valuta"
+                      formControlName="valuta"
+                    />
+                  </div>
+                </div>
+                <!--Pocetak treceg elementa u nizu iznos-->
+                <div class="col">
+                  <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="easyPayApp.uplatnica.iznos" for="field_iznos">Iznos</label>
+                    <input
+                      style="width: 14vh"
+                      type="number"
+                      min="0"
+                      class="form-control"
+                      name="iznos"
+                      id="field_iznos"
+                      data-cy="iznos"
+                      formControlName="iznos"
+                      (change)="checkIznos()"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!--Pocetak sledeceg reda sa desne strane-->
+              <div class="row mb-3">
+                <label class="form-label" jhiTranslate="easyPayApp.uplatnica.racunPrimaoca" for="field_racunPrimaoca">Racun Primaoca</label>
+                <input
+                  style="margin-top: -2px"
+                  type="text"
+                  class="form-control"
+                  name="racunPrimaoca"
+                  id="field_racunPrimaoca"
+                  data-cy="racunPrimaoca"
+                  formControlName="racunPrimaoca"
+                  (change)="checkTekuci()"
+                  autocomplete="off"
+                />
+              </div>
+              <!--Pocetak treceg reda sa desne strane-->
+              <div class="row">
+                <div class="col">
+                  <div class="row" style="width: 10vh">
+                    <label class="form-label" jhiTranslate="easyPayApp.uplatnica.model" for="field_model">Model</label>
+                    <input
+                      style="margin-top: -10px !important"
+                      type="text"
+                      class="form-control"
+                      name="model"
+                      id="field_model"
+                      data-cy="model"
+                      formControlName="model"
+                      (change)="checkModel()"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="row">
+                    <label class="form-label" jhiTranslate="easyPayApp.uplatnica.pozivNaBroj" for="field_pozivNaBroj">Poziv Na Broj</label>
+                    <input
+                      style="margin-top: -10px !important"
+                      type="text"
+                      class="form-control"
+                      name="pozivNaBroj"
+                      id="field_pozivNaBroj"
+                      data-cy="pozivNaBroj"
+                      formControlName="pozivNaBroj"
+                      (change)="checkPozivNaBroj()"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!------------------------------------------------------------------------------------------------------------------------>
+
+        <!--<div class="row mb-3">
+          <label class="form-label" jhiTranslate="easyPayApp.uplatnica.uplatilac" for="field_uplatilac">Uplatilac</label>
+          <input type="text" class="form-control" name="uplatilac" id="field_uplatilac" data-cy="uplatilac" formControlName="uplatilac" />
+        </div>-->
+
+        <!--<div class="row mb-3">
+          <label class="form-label" jhiTranslate="easyPayApp.uplatnica.svrhaUplate" for="field_svrhaUplate">Svrha Uplate</label>
+          <input
+            type="text"
+            class="form-control"
+            name="svrhaUplate"
+            id="field_svrhaUplate"
+            data-cy="svrhaUplate"
+            formControlName="svrhaUplate"
+          />
+          <div>
+            <input list="svrhaPlacanjaL" #svPl (change)="svrhaPlacanjaChange(svPl.value)">
+            <datalist id="svrhaPlacanjaL">
+              <option *ngFor="let svPl of svrhaPlacanjaPrevious " value="{{svPl}}"></option>
+            </datalist>
+          </div>
+        </div>-->
+
+        <!--<div class="row mb-3">
+          <label class="form-label" jhiTranslate="easyPayApp.uplatnica.primalac" for="field_primalac">Primalac</label>
+          <input type="text" class="form-control" name="primalac" id="field_primalac" data-cy="primalac" formControlName="primalac" />
+          <div>
+            <input list="primalacL" #primalac (change)="primalacChange(primalac.value)">
+            <datalist id="primalacL">
+              <option *ngFor="let primalac of primalacPrevious" value="{{primalac}}"></option>
+            </datalist>
+          </div>
+        </div>-->
+
+        <!--<div class="row mb-3">
+          <label class="form-label" jhiTranslate="easyPayApp.uplatnica.sifraPlacanja" for="field_sifraPlacanja">Sifra Placanja</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sifraPlacanja"
+            id="field_sifraPlacanja"
+            data-cy="sifraPlacanja"
+            formControlName="sifraPlacanja"
+          />
+        </div>-->
+
+        <!--<div class="row mb-3">
+          <label class="form-label" jhiTranslate="easyPayApp.uplatnica.valuta" for="field_valuta">Valuta</label>
+          <input type="text" class="form-control" name="valuta" id="field_valuta" data-cy="valuta" formControlName="valuta" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="easyPayApp.uplatnica.iznos" for="field_iznos">Iznos</label>
+          <input type="number" class="form-control" name="iznos" id="field_iznos" data-cy="iznos" formControlName="iznos" />
+        </div>-->
+
+        <!--<div class="row mb-3">
+          <label class="form-label" jhiTranslate="easyPayApp.uplatnica.racunPrimaoca" for="field_racunPrimaoca">Racun Primaoca</label>
+          <input
+            type="text"
+            class="form-control"
+            name="racunPrimaoca"
+            id="field_racunPrimaoca"
+            data-cy="racunPrimaoca"
+            formControlName="racunPrimaoca"
+          />
+        </div>-->
+
+        <!--<div class="row mb-3">
+          <label class="form-label" jhiTranslate="easyPayApp.uplatnica.model" for="field_model">Model</label>
+          <input type="text" class="form-control" name="model" id="field_model" data-cy="model" formControlName="model" />
+        </div>-->
+        <!--<div class="row mb-3">
+          <label class="form-label" jhiTranslate="easyPayApp.uplatnica.model" for="field_model">Model</label>
+          <div style="margin-left: 50px;">-->
+        <!--<label style="margin-bottom: 5px;">Oblik placanja</label>
+            <br>
+            <select #oblikPlacanjaId (change)="onSelected(oblikPlacanjaId.value)" [(ngModel)]="status" [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let ob of oblikPlacanja" value="{{ob.code}}">{{ob.code + " " + ob.name}}</option>
+            </select>
+          -->
+        <!--<label style="margin-top: 5px; margin-bottom: 5px;">Osnov placanja</label>
+            <br>
+            <input list="osnovpl" #os (change)="ssChange(os.value)">
+            <datalist id="osnovpl">
+              <option *ngFor="let os of osnovPlacanja" value="{{os.name}}"></option>
+            </datalist>-->
+        <!--</div>
+        </div>-->
+
+        <!--<div class="row mb-3">
+          <label class="form-label" jhiTranslate="easyPayApp.uplatnica.pozivNaBroj" for="field_pozivNaBroj">Poziv Na Broj</label>
+          <input
+            type="text"
+            class="form-control"
+            name="pozivNaBroj"
+            id="field_pozivNaBroj"
+            data-cy="pozivNaBroj"
+            formControlName="pozivNaBroj"
+          />
+        </div>-->
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="easyPayApp.uplatnica.datumKreiranja" for="field_datumKreiranja">Datum Kreiranja</label>
+          <div class="input-group">
+            <input
+              [(ngModel)]="todayDate"
+              id="field_datumKreiranja"
+              data-cy="datumKreiranja"
+              type="text"
+              class="form-control"
+              name="datumKreiranja"
+              ngbDatepicker
+              #datumKreiranjaDp="ngbDatepicker"
+              formControlName="datumKreiranja"
+              [minDate]="todayDateForRestriction"
+            />
+            <button type="button" class="btn btn-secondary" (click)="datumKreiranjaDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

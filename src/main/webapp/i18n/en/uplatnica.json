@@ -1,0 +1,40 @@
+{
+  "easyPayApp": {
+    "uplatnica": {
+      "home": {
+        "title": "Payment slip",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new payment slip",
+        "createOrEditLabel": "Create a payment slip",
+        "notFound": "No payment slips found"
+      },
+      "created": "A new payment slip is created with identifier {{ param }}",
+      "updated": "A payment slip is updated with identifier {{ param }}",
+      "deleted": "A payment slip is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete payment slip {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment slip"
+      },
+      "id": "ID",
+      "uplatilac": "Data on the payer",
+      "svrhaUplate": "Payment purpose",
+      "primalac": "Payee's name",
+      "sifraPlacanja": "Payment code",
+      "valuta": "Currency",
+      "iznos": "Funds",
+      "racunPrimaoca": "Number of payee's account",
+      "model": "Model",
+      "pozivNaBroj": "Reference credit number",
+      "datumKreiranja": "Date of creation",
+      "error": {
+        "racunPrimaoca": "Number of payee's account contains letters or is not in format xxx-xxxx-xx if contains sign -",
+        "iznos": "Amount of funds can not be less than 1 RSD",
+        "svrhaPlacanja": "Payment purpose can not be greater than 35 characters",
+        "model": "Model can not contains letters or sign -; Number of characters can not be greater than 2",
+        "pozivNaBroj": "Reference credit number can not starting or ending with sign - or contains that sign if model is 97 or 11; Can not contains letters; Number of characters can not be grater than 33"
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="uplatnica">
+      <h2 data-cy="uplatnicaDetailsHeading"><span jhiTranslate="easyPayApp.uplatnica.detail.title">Uplatnica</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ uplatnica.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyPayApp.uplatnica.uplatilac">Uplatilac</span></dt>
+        <dd>
+          <span>{{ uplatnica.uplatilac }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyPayApp.uplatnica.svrhaUplate">Svrha Uplate</span></dt>
+        <dd>
+          <span>{{ uplatnica.svrhaUplate }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyPayApp.uplatnica.primalac">Primalac</span></dt>
+        <dd>
+          <span>{{ uplatnica.primalac }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyPayApp.uplatnica.sifraPlacanja">Sifra Placanja</span></dt>
+        <dd>
+          <span>{{ uplatnica.sifraPlacanja }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyPayApp.uplatnica.valuta">Valuta</span></dt>
+        <dd>
+          <span>{{ uplatnica.valuta }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyPayApp.uplatnica.iznos">Iznos</span></dt>
+        <dd>
+          <span>{{ uplatnica.iznos }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyPayApp.uplatnica.racunPrimaoca">Racun Primaoca</span></dt>
+        <dd>
+          <span>{{ uplatnica.racunPrimaoca }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyPayApp.uplatnica.model">Model</span></dt>
+        <dd>
+          <span>{{ uplatnica.model }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyPayApp.uplatnica.pozivNaBroj">Poziv Na Broj</span></dt>
+        <dd>
+          <span>{{ uplatnica.pozivNaBroj }}</span>
+        </dd>
+        <dt><span jhiTranslate="easyPayApp.uplatnica.datumKreiranja">Datum Kreiranja</span></dt>
+        <dd>
+          <span>{{ uplatnica.datumKreiranja | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/uplatnica', uplatnica.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

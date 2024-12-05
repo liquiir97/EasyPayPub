@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Uplatnica.
+    -->
+    <changeSet id="20231109083256-1" author="jhipster">
+        <createTable tableName="uplatnica">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="uplatilac" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="svrha_uplate" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="primalac" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="sifra_placanja" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valuta" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="iznos" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="racun_primaoca" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="model" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="poziv_na_broj" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="datum_kreiranja" type="date">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20231109083256-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/uplatnica.csv"
+                  separator=";"
+                  tableName="uplatnica"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="uplatilac" type="string"/>
+            <column name="svrha_uplate" type="string"/>
+            <column name="primalac" type="string"/>
+            <column name="sifra_placanja" type="string"/>
+            <column name="valuta" type="string"/>
+            <column name="iznos" type="numeric"/>
+            <column name="racun_primaoca" type="string"/>
+            <column name="model" type="string"/>
+            <column name="poziv_na_broj" type="string"/>
+            <column name="datum_kreiranja" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

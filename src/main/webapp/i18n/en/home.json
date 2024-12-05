@@ -1,0 +1,32 @@
+{
+  "home": {
+    "title": "Welcome to Easy Pay",
+    "subtitle": "This is your homepage",
+    "logged": {
+      "message": "You are logged in as user \"{{username}}\"."
+    },
+    "question": "If you have any question on JHipster:",
+    "link": {
+      "homepage": "JHipster homepage",
+      "stackoverflow": "JHipster on Stack Overflow",
+      "bugtracker": "JHipster bug tracker",
+      "chat": "JHipster public chat room",
+      "follow": "follow @jhipster on Twitter"
+    },
+    "like": "If you like JHipster, don't forget to give us a star on",
+    "github": "GitHub",
+    "pageContent1": "Welcome to Easy Pay - your fast way for creating payment slip.!",
+    "pageContent2": "What Easy Pay brings to you?",
+    "pageContent21": "<span style='color: #b38fb6; font-weight: bold;'>Easy pay</span> is inovative aplication which gives you simple way for creating paymnet slips - fast and easy. No matter if you are you regular user who wants to pay bills fast or business user who needs to create a lot of payment slips, <span style='color: #b38fb6; font-weight: bold;'>Easy pay</span> is here to makes your life simple.",
+    "pageContent3": "Create payment slip in seconds:",
+    "pageContent31": "<span style='color: #b38fb6; font-weight: bold;'>Create payment slip in seconds:</span> Payment slips can be created in few clicks. Enter required data and that is it. With <span style='color: #b38fb6; font-weight: bold;'>Easy pay</span>, process of creating payment slips is simple like never before.",
+    "pageContent4": "Generate PDF report:",
+    "pageContent41": "<span style='color: #b38fb6; font-weight: bold;'>Generate PDF report: Easy Pay</span> has option for creating PDF reports with all data in transaction. Track your finance on efficient way and have information of your payments in one place.",
+    "pageContent5": "QR code for fast payment:",
+    "pageContent51": "<span style='color: #b38fb6; font-weight: bold;'>QR code for fast payment:</span> Scan QR code and finish your payment quicly! <span style='color: #b38fb6; font-weight: bold;'>Easy pay</span> generates QR codes for every transaction, with this payment proccess is more practical and faster.",
+    "pageContent6": "Can be used by private and business users:",
+    "pageContent61": "<span style='color: #b38fb6; font-weight: bold;'>Can be used by private and business users:</span> Whether you are regular user who wants to pay your bills fast and easy or business user who has need for generating a lot of payment slips, <span style='color: #b38fb6; font-weight: bold;'>Easy pay</span> is designed to satisfy all your needs.",
+    "pageContent7": "Register today and improve your business or get on time with <span style='color: #b38fb6; font-weight: bold;'>Easy pay</span>!",
+    "pageContent8": "Easy Pay"
+  }
+}

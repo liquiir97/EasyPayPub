@@ -1,0 +1,24 @@
+<form *ngIf="uplatnica" name="deleteForm" (ngSubmit)="confirmDelete(uplatnica.id!)" class="rounded">
+  <div class="modal-header">
+    <h4 class="modal-title" data-cy="uplatnicaDeleteDialogHeading" jhiTranslate="entity.delete.title">Confirm delete operation</h4>
+
+    <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" (click)="cancel()"></button>
+  </div>
+
+  <div class="modal-body">
+    <jhi-alert-error></jhi-alert-error>
+    <p id="jhi-delete-uplatnica-heading" jhiTranslate="easyPayApp.uplatnica.delete.question" [translateValues]="{ id: uplatnica.id }">
+      Are you sure you want to delete Uplatnica {{ uplatnica.id }}?
+    </p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary rounded-pill" data-dismiss="modal" (click)="cancel()">
+      <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+    </button>
+
+    <button id="jhi-confirm-delete-uplatnica" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-outline-danger rounded-pill">
+      <fa-icon icon="times"></fa-icon>&nbsp;<span jhiTranslate="entity.action.delete">Delete</span>
+    </button>
+  </div>
+</form>

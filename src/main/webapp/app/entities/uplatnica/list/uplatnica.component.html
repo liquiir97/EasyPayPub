@@ -1,0 +1,175 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<div>
+  <h2 id="page-heading" data-cy="UplatnicaHeading">
+    <span jhiTranslate="easyPayApp.uplatnica.home.title">Uplatnicas</span>
+
+    <div class="d-flex justify-content-end">
+      <!--<button class="btn btn-outline-info me-2 rounded-pill" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="easyPayApp.uplatnica.home.refreshListLabel">Refresh list</span>
+      </button>-->
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-outline-primary rounded-pill jh-create-entity create-uplatnica"
+        [routerLink]="['/uplatnica/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="easyPayApp.uplatnica.home.createLabel"> Create a new Uplatnica </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="uplatnicas?.length === 0">
+    <span jhiTranslate="easyPayApp.uplatnica.home.notFound">No Uplatnicas found</span>
+  </div>
+
+  <div class="table-responsive table-entities main" id="entities" *ngIf="uplatnicas && uplatnicas.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="uplatilac">
+            <div class="d-flex">
+              <span jhiTranslate="easyPayApp.uplatnica.uplatilac">Uplatilac</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="svrhaUplate">
+            <div class="d-flex">
+              <span jhiTranslate="easyPayApp.uplatnica.svrhaUplate">Svrha Uplate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="primalac">
+            <div class="d-flex">
+              <span jhiTranslate="easyPayApp.uplatnica.primalac">Primalac</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sifraPlacanja">
+            <div class="d-flex">
+              <span jhiTranslate="easyPayApp.uplatnica.sifraPlacanja">Sifra Placanja</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valuta">
+            <div class="d-flex">
+              <span jhiTranslate="easyPayApp.uplatnica.valuta">Valuta</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="iznos">
+            <div class="d-flex">
+              <span jhiTranslate="easyPayApp.uplatnica.iznos">Iznos</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="racunPrimaoca">
+            <div class="d-flex">
+              <span jhiTranslate="easyPayApp.uplatnica.racunPrimaoca">Racun Primaoca</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="model">
+            <div class="d-flex">
+              <span jhiTranslate="easyPayApp.uplatnica.model">Model</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="pozivNaBroj">
+            <div class="d-flex">
+              <span jhiTranslate="easyPayApp.uplatnica.pozivNaBroj">Poziv Na Broj</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="datumKreiranja">
+            <div class="d-flex">
+              <span jhiTranslate="easyPayApp.uplatnica.datumKreiranja">Datum Kreiranja</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let uplatnica of uplatnicas; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/uplatnica', uplatnica.id, 'view']">{{ uplatnica.id }}</a>
+          </td>
+          <td>{{ uplatnica.uplatilac }}</td>
+          <td>{{ uplatnica.svrhaUplate }}</td>
+          <td>{{ uplatnica.primalac }}</td>
+          <td>{{ uplatnica.sifraPlacanja }}</td>
+          <td>{{ uplatnica.valuta }}</td>
+          <td>{{ uplatnica.iznos }}</td>
+          <td>{{ uplatnica.racunPrimaoca }}</td>
+          <td>{{ uplatnica.model }}</td>
+          <td>{{ uplatnica.pozivNaBroj }}</td>
+          <td>{{ uplatnica.datumKreiranja | formatMediumDate }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <!--type="submit"
+                [routerLink]="['/uplatnica', uplatnica.id, 'view']"
+                <fa-icon icon="file"></fa-icon>
+              -->
+              <button
+                style="margin-right: 5px"
+                class="btn btn-outline-info btn-sm rounded"
+                data-cy="entityDetailsButton"
+                (click)="generatePdf(uplatnica.id)"
+              >
+                <fa-icon icon="file"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                style="margin-right: 5px"
+                type="submit"
+                [routerLink]="['/uplatnica', uplatnica.id, 'template']"
+                class="btn btn-outline-primary btn-sm rounded"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(uplatnica)" class="btn btn-outline-danger btn-sm rounded" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="uplatnicas && uplatnicas.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

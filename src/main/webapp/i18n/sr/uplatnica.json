@@ -1,0 +1,40 @@
+{
+  "easyPayApp": {
+    "uplatnica": {
+      "home": {
+        "title": "Uplatnica",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novu uplatnicu",
+        "createOrEditLabel": "Kreirajte uplatnicu",
+        "notFound": "No Uplatnicas found"
+      },
+      "created": "Kreirana je nova uplatnica pod nazivom {{ param }}",
+      "updated": "Uplatnica pod nazivom {{ param }} je ažuriran",
+      "deleted": "Uplatnica pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete uplatnicu pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Uplatnica"
+      },
+      "id": "ID",
+      "uplatilac": "Uplatilac",
+      "svrhaUplate": "Svrha Uplate",
+      "primalac": "Primalac",
+      "sifraPlacanja": "Sifra Placanja",
+      "valuta": "Valuta",
+      "iznos": "Iznos",
+      "racunPrimaoca": "Racun Primaoca",
+      "model": "Model",
+      "pozivNaBroj": "Poziv Na Broj",
+      "datumKreiranja": "Datum Kreiranja",
+      "error": {
+        "racunPrimaoca": "Racun primaoca ne moze imati slova ili nije u formatu xxx-xxxxx-xx ako sadrzi znak -",
+        "iznos": "Iznos ne moze biti manji od 1 dinara",
+        "svrhaPlacanja": "Svrha placanja ne moze sadrzati vise od 35 karaktera",
+        "model": "Model ne moze sadrzati slova ili znak -; Broj karaktera ne moze biti veci od 2",
+        "pozivNaBroj": "Poziv na broj ne moze pocinjati ili zavrsavati sa znakom - ili imati isit znak ako je model 97 ili 11; Ne moze sadrzati slova; Broj karaktera ne moze biti veci od 33"
+      }
+    }
+  }
+}

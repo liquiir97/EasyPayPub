@@ -1,0 +1,41 @@
+html {
+  font-family: 'Arial', sans-serif !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+#textF {
+  font-size: 15px;
+  font-style: italic;
+}
+
+#svrhaUplateId {
+  width: -webkit-fill-available;
+}
+
+#primalacId {
+  width: -webkit-fill-available;
+}
+
+.btn-primary {
+  background-color: #b38fb6 !important;
+  color: white !important;
+  border-color: #b38fb6 !important;
+}
+
+.btn-link {
+  color: red !important;
+}
+
+#addData {
+  font-family: 'Palatino', sans-serif !important;
+  font-size: 13px !important;
+}
