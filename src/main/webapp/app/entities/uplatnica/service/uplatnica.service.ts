@@ -11,6 +11,8 @@ import { createRequestOption } from 'app/core/request/request-util';
 import { IUplatnica, NewUplatnica } from '../uplatnica.model';
 import { IOblikPlacanja } from '../oblik-placanja.model';
 import { IOsnovPlacanja } from '../osnov-placanja.model';
+import { environment as enviromentProd } from 'app/environment/environment-prod';
+import { environment as enviromentDev } from 'app/environment/environment-dev';
 
 export type PartialUpdateUplatnica = Partial<IUplatnica> & Pick<IUplatnica, 'id'>;
 
@@ -32,8 +34,8 @@ export type EntityArrayResponseTypeOblik = HttpResponse<IOblikPlacanja[]>;
 export class UplatnicaService {
   protected resourceUrl = this.applicationConfigService.getEndpointFor('api/uplatnicas');
 
-  private baseUrl = 'http://49.12.1.145:8080/v1';
-  private UrlData = 'http://49.12.1.145:8080/api';
+  private baseUrl = enviromentDev.baseUrl;
+  private UrlData = enviromentDev.UrlData;;
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
   create(uplatnica: NewUplatnica): Observable<EntityResponseType> {
