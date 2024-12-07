@@ -213,8 +213,6 @@ public class UplatnicaResource {
     public ResponseEntity<List<UplatnicaDTO>> getAllUplatnicasByUser(@PathVariable("user") String user) {
         log.info("/find-all-payments-by-user");
         List<UplatnicaDTO> listUplatnicaDtoByUser = this.uplatnicaService.findAllPaymentsByUser(user);
-        List<UplatnicaDTO> liss = listUplatnicaDtoByUser.stream().filter(e -> e.getIznos() < 5).collect(Collectors.toList());
-        int count = liss.size();
         return ResponseEntity.ok(listUplatnicaDtoByUser);
     }
 
