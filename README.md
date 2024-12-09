@@ -5,7 +5,7 @@
 ## Examples
 |Home page|Payment slip page|New slip page|PDF of slip|
 |---------|------------------|-------------|-----------|
-<img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/StartPage.png">|<img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/SlipPage.png">|<img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/NewSlipPage.png">|<img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/SlipPdf.png">
+<img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/startPage.png">|<img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/SlipPage.png">|<img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/NewSlipPage.png">|<img src="https://github.com/liquiir97/EasyPayPub/blob/main/webpack/SlipPdf.png">
 
 ## PDF
 [Open payment slip PDF](https://github.com/liquiir97/EasyPayPub/blob/main/uplatnica_05_12_2024_17_58_51.pdf)
